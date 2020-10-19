@@ -17,7 +17,7 @@
         <div>
             <p> {{$articles->text}}</p>
             <p>Data created: {{$articles->created_at}}</p>
-
+            <p>Author: {{$articles->author}}</p>
         </div>
 
     </div>

@@ -6,10 +6,10 @@
        <h1>Articles</h1>
 
             @foreach($articles as $article)
-            <a href="{{route('articles.show', $article->id)}}""><h3> {{$article->title}}</h3></a>
-            <p>Посление обновления: {{$article->updated_at}}</p>
+            <a href="{{route('articles.show', $article->id)}}"><h3> {{$article->title}}</h3></a>
+            <p>Last updates: {{$article->updated_at}}</p>
+            <p>Author: {{$article->author}}</p>
             @endforeach
-
             @csrf
 
     </div>

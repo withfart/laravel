@@ -14,7 +14,7 @@
         @endif
 
         <h1 class="my-4">New Products</h1>
-        <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('products.store',)}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             Name:
@@ -43,8 +43,8 @@
 
             Photo:
             <br/>
-            <input type="file" name="photo" value=""/>
-            <br/>     <br/>
+            <input type="file" name="photo" value="photo" />
+            <br/> <br/>
 
             <input type="submit" class="btn btn-primary" value="Save"/>
         </form>

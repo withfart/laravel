@@ -40,7 +40,6 @@
 
             <input type="submit" class="btn btn-primary" value="Save"/>
         </form>
-
     </div>
     <!-- /.col-lg-12-->
 

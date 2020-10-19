@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class ProductController extends Controller
 {
@@ -16,6 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+
         return view('products.index', compact('products'));
     }
 
@@ -42,12 +44,16 @@ class ProductController extends Controller
 
     {
 
-        $request->validate([
+        $path = $request->file('photo')->store('photos','public');
 
-            'name'=>'required',
-            'price'=>'required'
+
+
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
 
         ]);
+
 
         Product::create([
 
@@ -55,9 +61,10 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'category_id' => $request->category_id,
-            'photo' => ''
+            'photo' => $path
 
         ]);
+
 
         return redirect()->route('products.index');
     }
@@ -124,4 +131,5 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index');
     }
+
 }

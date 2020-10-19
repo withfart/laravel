@@ -17,14 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
 
-
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
 
 
 Route::get('/contact', function () {
@@ -36,6 +29,7 @@ Route::resource('articles', 'ArticlesController');
 Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
+
     Route::resource('categories', 'CategoryController');
     Route::resource('products', 'ProductController');
 });
